@@ -12,10 +12,10 @@ public class Utils {
 
     public static void runScenario(int txA, int txB, WorkUnit workOfUnit) throws SQLException {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriverClass(org.hsqldb.jdbc.JDBCDriver.class);
+        dataSource.setDriverClass(org.h2.Driver.class);
         //dataSource.setDriverClass(org.hsqldb.jdbcDriver.class);
         dataSource.setUsername("UsersDB");
-        dataSource.setUrl("jdbc:hsqldb:file:~/testDB//UsersDB");
+        dataSource.setUrl("jdbc:h2:mem:default");
         dataSource.setPassword("UsersDB");
 
         try(Connection connectionA = dataSource.getConnection();
